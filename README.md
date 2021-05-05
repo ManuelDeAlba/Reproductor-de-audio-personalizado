@@ -1,5 +1,6 @@
 # Reproductor de video personalizado
 
+## Estructura HTML del reproductor
 ```
 <div class="reproductor" id="reproductor1">
     <video src="src/video.mp4" class="video"></video>
@@ -41,4 +42,8 @@
         </div>
     </div>
 </div>
+```
+## Instanciar la clase Reproductor para agregar las funcionalidades
+```
+    const video = new Reproductor('#reproductor1');
 ```
