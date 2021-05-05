@@ -44,6 +44,4 @@
 </div>
 ```
 ## Instanciar la clase Reproductor para agregar las funcionalidades
-```
-    const video = new Reproductor('#reproductor1');
-```
+> const video = new Reproductor('#reproductor1');
