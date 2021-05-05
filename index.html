@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="reproductor">
+    <div class="reproductor" id="reproductor1">
         <video src="src/video.mp4" class="video"></video>
 
         <div class="reproductor__contenedor">
@@ -24,6 +24,7 @@
                         <span>&nbsp;/&nbsp;</span>
                         <span class="duracion">00:00:00</span>
                     </div>
+                    
                     <div class="botones__config">
                         <div class="volumen">
                             <span class="material-icons">volume_up</span>
@@ -51,7 +52,7 @@
 
     <script src="js/Reproductor.js"></script>
     <script>
-        const video = new Reproductor('.reproductor');
+        const video = new Reproductor('#reproductor1');
     </script>
 </body>
 </html>
