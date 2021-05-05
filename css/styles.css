@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reproductor{
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.video{
+    width: 100%;
+    vertical-align: top;
+}
+
+.reproductor__contenedor{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    user-select: none;
+}
+.reproductor:hover .reproductor__contenedor{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+}
+
+.play-pause{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+    cursor: pointer;
+}
+
+.controles{
+    width: 90%;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    color: #fff;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px 5px 10px;
+}
+
+.botones__tiempo{
+    display: flex;
+    align-items: center;
+}
+
+.botones__config{
+    display: flex;
+    align-items: flex-start;
+}
+
+.botones__config .volumen,
+.botones__config .configuracion{
+    cursor: pointer;
+}
+
+.botones__config .volumen{
+    width: 25px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: width .3s;
+}
+
+.botones__config .volumen:hover{
+    width: 160px;
+}
+
+.botones__config .volumen .range{
+    appearance: none;
+    height: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    box-shadow: 0 0 5px #000;
+}
+.botones__config .volumen .range::-webkit-slider-thumb{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(0, 190, 255);
+    border-radius: 50%;
+    box-shadow: 0 0 5px #000;
+}
+
+.botones__config .configuracion{
+    position: relative;
+}
+
+.botones__config .configuracion .velocidades{
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left:50%;
+    transform: translate(-50%);
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.botones__config .configuracion.activa .velocidades{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.botones__config .configuracion .velocidades .velocidad{
+    border-bottom: 1px solid #fff;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.botones__config .configuracion .velocidades .velocidad:hover{
+    background: rgba(255,255,255,.2);
+}
+
+.botones__config .configuracion .velocidades .velocidad:last-child{
+    border-bottom: none;
+}
+
+.barra{
+    background: rgba(0,0,0,.5);
+    border: 1px solid #fff;
+    width: 100%;
+    height: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: height .3s;
+    position: relative;
+}
+
+.barra__marcador{
+    background: rgb(0, 190, 255);
+    width: 0%;
+    height: 8px;
+    transition: height .3s;
+}
+
+.barra__marcador-hover{
+    background: rgb(0, 100, 155);
+    width: 0%;
+    height: 8px;
+    transition: height .3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.barra:hover{
+    height: 20px;
+}
+
+.barra:hover .barra__marcador,
+.barra:hover .barra__marcador-hover{
+    height: 18px;
+}
+
+@media screen and (max-width: 425px) {
+    .play-pause{
+        font-size: 70px;
+    }
+    .botones{
+        margin-bottom: 0;
+    }
+    .controles .botones .botones__tiempo{
+        font-size: 14px;
+    }
+    .botones__config .volumen:hover{
+        width: 80px;
+    }
+    .botones__config .volumen .range{
+        width: 50px;
+    }
+    .controles .botones .botones__config .material-icons{
+        font-size: 20px;
+    }
+    .botones__config .volumen{
+        width: 20px;
+    }
+    .botones__config .configuracion .velocidades .velocidad{
+        padding: 5px 10px;
+    }
+}
